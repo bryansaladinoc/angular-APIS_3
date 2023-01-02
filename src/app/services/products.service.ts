@@ -7,7 +7,7 @@ import { Product, CreateProductDTO, UpdateProductDTO } from './../models/product
   providedIn: 'root'
 })
 export class ProductsService {
-  private apiUrl = 'https://young-sands-07814.herokupppapp.com/api/products';
+  private apiUrl = '/api/products';
   constructor(private http: HttpClient) { }
 
   getAllProducts(limit?: number, offset?: number) {
