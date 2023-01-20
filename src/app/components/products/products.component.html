@@ -1,19 +1,31 @@
 <button (click)="createNewProduct()">create</button>
+<button (click)="onShowDetail('21321321')">Detalle not found</button>
 <div class="products--grid">
-  <app-product [product]="product" *ngFor="let product of products" (addedProduct)="onAddToShoppingCart($event)"
+  <app-product
+    [product]="product"
+    *ngFor="let product of products"
+    (addedProduct)="onAddToShoppingCart($event)"
     (showProduct)="onShowDetail($event)"></app-product>
-    <button (click)="getAllProducts()" *ngIf="offset <= totalProducts">Load more | {{offset}}</button>
+  <button
+    (click)="getAllProducts()"
+    *ngIf="offset <= totalProducts">
+    Load more | {{offset}}
+  </button>
 </div>
 
-
-
-<div class="product-detail" [class.active]="showProduct">
+<div
+  class="product-detail"
+  [class.active]="showProduct">
   <div *ngIf="productChosen">
     <button (click)="toggleShowDetail()">Close</button>
     <h1>{{productChosen.title}}</h1>
     <swiper [slidesPerView]="1">
-      <ng-template swiperSlide *ngFor="let image of productChosen.images">
-        <img [src]="image" alt="">
+      <ng-template
+        swiperSlide
+        *ngFor="let image of productChosen.images">
+        <img
+          [src]="image"
+          alt>
       </ng-template>
     </swiper>
     <p>{{productChosen.description}}</p>
